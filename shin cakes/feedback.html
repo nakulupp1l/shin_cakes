@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="feed.css">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="anime.css">
+    <style>
+        
+        @keyframes roundi {
+            from{
+                border-color: yellow;
+            }
+            to{
+                border-color: rgb(247, 51, 17);
+            }
+            
+        }
+          @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+   </style>
+</head>
+<body>
+    <header>
+    
+        <nav>
+            
+            <ul class="logohead">
+            <div>
+                <li style=" border:10px solid yellow ;border-radius: 25.5px; margin:20px;padding: 10px; 
+                position:static;animation:roundi 5s infinite;" ><img src="img/logo.jpg" alt="LOGO" width="192px">
+                </li>
+            </div>
+                <div> <li id="center" class="fe"><a href="page1.html"> Home </a> </li></div>
+              <div><li class="fe"><a href="explore.html"> Explore Us</a> </li></div> 
+              <div> <li class="fe"><a href="feedback.html" >Feedback</a></li></div>
+               
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container">
+        <form onsubmit="sendEmail(); reset(); return false;">
+            <h1>Shin Cakes</h1>
+            <h2>Provide us feedback in order to improve</h2>
+            <input name="name" type="text" id="name" placeholder="Your Name" required>
+            <br>
+            <input name="email" type="email" id="email" placeholder="Your Email" required>
+            <br>
+            <input name="text" type="text" id="phone" placeholder="Phone no." required>
+            <br>
+            <textarea name="feedback" id="message" placeholder="MESSAGE" row="5" required></textarea><br>
+            <button  type="submit" >Submit Feedback</button>
+         </form>    
+     </div>
+<Script src="https://smtpjs.com/v3/smtp.js"></Script>
+<script>
+function sendEmail(){
+    Email.send({
+        Host:"smtp.gmail.com",
+        Username :"uppalnakul@gmail.com",
+        Password :"12345678",
+        To:"uppalnakul@gmail.com",
+        From : document.getElementById("email").value,
+        Subject:"New contact from enquiry",
+        Body:"Name: "+document.getElementById("name").value+
+        "<br> Email:"+document.getElementById("email").value
+        +"Phone no.:"+document.getElementById("phone").value +
+        "feedback:"+document.getElementById("message").value
+    }).then(message=>alert("message sent succesfully"));
+}
+</script>
+    
+<footer>
+    <div class="box1">
+        <div class="box2">
+          <a href="page1.html"><img src="img/button.jpg" alt="button back" width="100px" height="100px"></a>
+       </div>
+</div>
+</footer>
+    </body>
+</html>
